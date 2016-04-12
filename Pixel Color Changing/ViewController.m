@@ -57,6 +57,7 @@
 
 @end
 
+/// A simple struct to represent the position of a pixel
 struct PixelPosition {
     NSInteger x;
     NSInteger y;
@@ -72,7 +73,7 @@ typedef struct PixelPosition PixelPosition;
 
 -(UIImage*) imageWithPixel:(PixelPosition)pixelPosition replacedByColor:(UIColor*)color {
     
-    // components of replacement color
+    // components of replacement color – in a 255 UInt8 format (fairly standard bitmap format)
     const CGFloat* colorComponents = CGColorGetComponents(color.CGColor);
     UInt8* color255Components = calloc(sizeof(UInt8), 4);
     for (int i = 0; i < 4; i++) color255Components[i] = (UInt8)round(colorComponents[i]*255.0);
@@ -102,7 +103,7 @@ typedef struct PixelPosition PixelPosition;
     // the bitmap info
     CGBitmapInfo bitmapInfo = alphaInfo | kCGBitmapByteOrderDefault;
     
-    // data pointer
+    // data pointer – stores an array of the pixel components. For example (r0, b0, g0, a0, r1, g1, b1, a1 .... rn, gn, bn, an)
     UInt8* data = calloc(bytesPerRow, height);
     
     // get new RGB color space
@@ -110,16 +111,18 @@ typedef struct PixelPosition PixelPosition;
     
     // create bitmap context
     CGContextRef ctx = CGBitmapContextCreate(data, width, height, bitsPerComponent, bytesPerRow, colorSpace, bitmapInfo);
+    
+    // draw image into context (populating the data array while doing so)
     CGContextDrawImage(ctx, rect, rawImage);
     
     // get the index of the pixel (4 components times the x position plus the y position times the row width)
     NSInteger pixelIndex = 4*(pixelPosition.x+(pixelPosition.y*width));
     
     // set the pixel components to the color components
-    data[pixelIndex] = color255Components[0];
-    data[pixelIndex+1] = color255Components[1];
-    data[pixelIndex+2] = color255Components[2];
-    data[pixelIndex+3] = color255Components[3];
+    data[pixelIndex] = color255Components[0]; // r
+    data[pixelIndex+1] = color255Components[1]; // g
+    data[pixelIndex+2] = color255Components[2]; // b
+    data[pixelIndex+3] = color255Components[3]; // a
     
     // get image from context
     CGImageRef img = CGBitmapContextCreateImage(ctx);
