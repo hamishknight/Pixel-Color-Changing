@@ -15,6 +15,8 @@
 		1C5DAF211CBD6C640021B65E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C5DAF1F1CBD6C640021B65E /* LaunchScreen.storyboard */; };
 		1C5DAF2C1CBD6C640021B65E /* Pixel_Color_ChangingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5DAF2B1CBD6C640021B65E /* Pixel_Color_ChangingTests.m */; };
 		1C5DAF371CBD6C640021B65E /* Pixel_Color_ChangingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5DAF361CBD6C640021B65E /* Pixel_Color_ChangingUITests.m */; };
+		1C5DAF4A1CBD88930021B65E /* img.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C5DAF481CBD88930021B65E /* img.png */; };
+		1C5DAF4B1CBD88930021B65E /* img2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C5DAF491CBD88930021B65E /* img2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		1C5DAF321CBD6C640021B65E /* Pixel Color ChangingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pixel Color ChangingUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C5DAF361CBD6C640021B65E /* Pixel_Color_ChangingUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pixel_Color_ChangingUITests.m; sourceTree = "<group>"; };
 		1C5DAF381CBD6C640021B65E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1C5DAF481CBD88930021B65E /* img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img.png; sourceTree = SOURCE_ROOT; };
+		1C5DAF491CBD88930021B65E /* img2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img2.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,8 @@
 				1C5DAF151CBD6C640021B65E /* AppDelegate.m */,
 				1C5DAF171CBD6C640021B65E /* ViewController.h */,
 				1C5DAF181CBD6C640021B65E /* ViewController.m */,
+				1C5DAF481CBD88930021B65E /* img.png */,
+				1C5DAF491CBD88930021B65E /* img2.png */,
 				1C5DAF1A1CBD6C640021B65E /* Main.storyboard */,
 				1C5DAF1D1CBD6C640021B65E /* Assets.xcassets */,
 				1C5DAF1F1CBD6C640021B65E /* LaunchScreen.storyboard */,
@@ -244,8 +250,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C5DAF211CBD6C640021B65E /* LaunchScreen.storyboard in Resources */,
+				1C5DAF4B1CBD88930021B65E /* img2.png in Resources */,
 				1C5DAF1E1CBD6C640021B65E /* Assets.xcassets in Resources */,
 				1C5DAF1C1CBD6C640021B65E /* Main.storyboard in Resources */,
+				1C5DAF4A1CBD88930021B65E /* img.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
