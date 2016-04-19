@@ -87,21 +87,11 @@ typedef struct PixelPosition PixelPosition;
     CGRect rect = {CGPointZero, {width, height}};
     
     // image format
-    size_t bitsPerComponent = CGImageGetBitsPerComponent(rawImage);
-    size_t bitsPerPixel = bitsPerComponent*4;
-    size_t bytesPerRow = bitsPerPixel*width/8;
-    CGImageAlphaInfo alphaInfo = CGImageGetAlphaInfo(rawImage);
-    
-    if (alphaInfo == kCGImageAlphaNone) { // unsupported format, change to closest supported.
-        alphaInfo = kCGImageAlphaNoneSkipLast;
-    }
-    
-    if (alphaInfo == kCGImageAlphaLast) { // unsupported format, change to closest supported.
-        alphaInfo = kCGImageAlphaPremultipliedLast;
-    }
+    size_t bitsPerComponent = 8;
+    size_t bytesPerRow = width*4;
     
     // the bitmap info
-    CGBitmapInfo bitmapInfo = alphaInfo | kCGBitmapByteOrderDefault;
+    CGBitmapInfo bitmapInfo = kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big;
     
     // data pointer – stores an array of the pixel components. For example (r0, b0, g0, a0, r1, g1, b1, a1 .... rn, gn, bn, an)
     UInt8* data = calloc(bytesPerRow, height);
